@@ -1,0 +1,46 @@
+<svg fill="#000000" version="1.1" id="Capa_1" viewBox="-40 -15 80 30">
+    <!-- Starting Position -->
+    <g transform="translate(-30, 0)"> <!-- Together -->
+        <g> <!-- Left -->
+            <ellipse rx="1" ry="2" cx="0" cy="0"/>
+            <circle r="1" cx="0" cy="3"/>
+        </g>
+        <g> <!-- Right -->
+            <ellipse rx="1" ry="2" cx="3" cy="0"/>
+            <circle r="1" cx="3" cy="3"/>
+        </g>
+    </g>
+    <!-- First Step -->
+    <g transform="translate(-10, 0)">
+        <g transform="translate(0, -7)"> <!-- Left -->
+            <ellipse rx="1" ry="2" cx="0" cy="0"/>
+            <circle r="1" cx="0" cy="3"/>
+        </g>
+        <g> <!-- Right -->
+            <ellipse rx="1" ry="2" cx="3" cy="0"/>
+            <circle r="1" cx="3" cy="3"/>
+        </g>
+    </g>
+    <!-- Second Step -->
+    <g transform="translate(10, 0)">
+        <g transform="translate(0, -7)"> <!-- Left -->
+            <ellipse rx="1" ry="2" cx="0" cy="0"/>
+            <circle r="1" cx="0" cy="3"/>
+        </g>
+        <g transform="translate(5, -7)"> <!-- Right -->
+            <ellipse rx="1" ry="2" cx="3" cy="0"/>
+            <circle r="1" cx="3" cy="3"/>
+        </g>
+    </g>
+    <!-- Third Step -->
+    <g transform="translate(30, -7)"> <!-- Together -->
+        <g> <!-- Left -->
+            <ellipse rx="1" ry="2" cx="0" cy="0"/>
+            <circle r="1" cx="0" cy="3"/>
+        </g>
+        <g> <!-- Right -->
+            <ellipse rx="1" ry="2" cx="3" cy="0"/>
+            <circle r="1" cx="3" cy="3"/>
+        </g>
+    </g>
+</svg>

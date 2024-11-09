@@ -1,0 +1,4 @@
+<svg fill="#000000" version="1.1" id="FeetTogether"  viewBox="-3 -4 6 8">
+    <use x="-2" y="0" href="Footprints.svg#Left" />
+    <use x="2" y="0" href="Footprints.svg#Right" />
+</svg>
