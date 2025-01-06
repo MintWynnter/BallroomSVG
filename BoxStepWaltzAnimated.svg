@@ -1,0 +1,37 @@
+<svg fill="#000000" version="1.1" id="Capa_1" viewBox="-40 -15 80 30">
+     <!-- Starting Position -->     
+     <g id="left" transform="translate(-30, 0)"> <!-- Left -->         
+        <ellipse rx="1" ry="2" cx="0" cy="0"/>
+        <circle r="1" cx="0" cy="3"/>     
+    </g>     
+    <g id="right" transform="translate(-30, 0)"> <!-- Right -->         
+        <ellipse rx="1" ry="2" cx="3" cy="0"/>         
+        <circle r="1" cx="3" cy="3"/>     
+    </g>  
+</svg>  
+<script> 
+    var t = null;  
+    function start() {   
+        if(t == null) {     
+            t = setInterval(animate, 10);   
+        } 
+    }  
+    function stop() {   
+        if(t != null) {     
+            clearInterval(t);     
+            t = null;   
+        } 
+    }  
+    function animate() {   
+        var circle = document.getElementById("left");   
+        var xforms = circle.getAttribute("transform");   
+        var parts = xforms.replace(/[^0-9\s-.]/g, '').split(" ");   
+        var firstX = parseFloat(parts[0]),       
+            firstY = parseFloat(parts[1]);   
+        var newCX = .1 + firstX;   
+        if(newCX > 30) {     
+            newCX = -30;   
+        }   
+        circle.setAttribute("transform", `translate(${newCX}, ${firstY})`);
+    } 
+</script>
