@@ -47,7 +47,7 @@ function reset() {
     frfoot.setAttribute("transform", "translate(-28.5, -2.5)");
 } 
 function animate() {   
-	timein += 10;
+	timein += 1;
     var llfoot = document.getElementById("lleft");   
     var llforms = llfoot.getAttribute("transform");   
     var llparts = llforms.replace(/[^0-9\s-.]/g, '').split(" ");   
@@ -69,33 +69,33 @@ function animate() {
     var frparts = frforms.replace(/[^0-9\s-.]/g, '').split(" ");   
     var frightx = parseFloat(frparts[0]),       
         frighty = parseFloat(frparts[1]); 
-    if(timein < 1000){
-    	llefty -= .1;
-        frighty -= .1;
+    if(timein <= 100){
+    	llefty -= .09375;
+        frighty -= .09375;
     }
-    else if(timein < 2000 && timein >= 1000){
-    	lrightx += .1;
-        lrighty -= .1;
-        fleftx += .1;
-        flefty -= .1;
+    else if(timein <= 200 && timein > 100){
+    	lrightx += .09375;
+        lrighty -= .09375;
+        fleftx += .09375;
+        flefty -= .09375;
     }
-    else if(timein < 3000 && timein >= 2000){
-    	lleftx += .1;
-        frightx += .1;
+    else if(timein <= 300 && timein > 200){
+    	lleftx += .09375;
+        frightx += .09375;
     }
-    else if(timein < 4000 && timein >= 3000){
-    	lrighty += .1;
-        flefty += .1;
+    else if(timein <= 400 && timein > 300){
+    	lrighty += .09375;
+        flefty += .09375;
     }
-    else if(timein < 5000 && timein >= 4000){
-    	lleftx -= .1;
-        llefty += .1;
-        frightx -= .1;
-        frighty += .1;
+    else if(timein <= 500 && timein > 400){
+    	lleftx -= .09375;
+        llefty += .09375;
+        frightx -= .09375;
+        frighty += .09375;
     }
-    else if(timein < 6000 && timein >= 5000){
-    	lrightx -= .1;
-        fleftx -= .1;
+    else if(timein <= 600 && timein > 500){
+    	lrightx -= .09375;
+        fleftx -= .09375;
     }
     else{
     	timein = 0;
