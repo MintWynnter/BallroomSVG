@@ -1,0 +1,131 @@
+<svg fill="#000000" version="1.1" id="Capa_1" viewBox="-60 -50 60 80">
+     <!-- Starting Position Lead -->     
+     <g id="lleft" transform="translate(-20, 5) rotate(-45)" style="fill:blue"> <!-- Left -->         
+        <ellipse rx="1" ry="2" cx="0" cy="0"/>
+        <circle r="1" cx="0" cy="3"/>     
+    </g>     
+    <g id="lright" transform="translate(-20, 5) rotate(-45)" style="fill:blue"> <!-- Right -->         
+        <ellipse rx="1" ry="2" cx="3" cy="0"/>         
+        <circle r="1" cx="3" cy="3"/>     
+    </g>  
+    
+    <!-- Starting Position Follow -->     
+     <g id="fright" transform="translate(-23.5, -.5) rotate(-45)" style="fill:pink"> <!-- Left -->         
+        <ellipse rx="1" ry="2" cx="0" cy="3"/>
+        <circle r="1" cx="0" cy="0"/>     
+    </g>     
+    <g id="fleft" transform="translate(-23.5, -.5) rotate(-45)" style="fill:pink"> <!-- Right -->         
+        <ellipse rx="1" ry="2" cx="3" cy="3"/>         
+        <circle r="1" cx="3" cy="0"/>     
+    </g> 
+</svg>  
+<script> 
+var t = null; 
+var timein = 0;
+function start() {   
+    if(t == null) {     
+        t = setInterval(animate, 10);   
+    } 
+}  
+function stop() {   
+    if(t != null) {     
+        clearInterval(t);     
+        t = null;   
+    } 
+}  
+function reset() {   
+    stop();
+    timein = 0;
+    var llfoot = document.getElementById("lleft");
+    var lrfoot = document.getElementById("lright");
+    var flfoot = document.getElementById("fleft");   
+    var frfoot = document.getElementById("fright");
+    
+    llfoot.setAttribute("transform", "translate(-20, 5) rotate(-45)");
+    lrfoot.setAttribute("transform", "translate(-20, 5) rotate(-45)");
+    flfoot.setAttribute("transform", "translate(-23.5, -.5) rotate(-45)");
+    frfoot.setAttribute("transform", "translate(-23.5, -.5) rotate(-45)");
+} 
+function animate() {   
+	timein += 1;
+    var llfoot = document.getElementById("lleft");   
+    var llforms = llfoot.getAttribute("transform");   
+    var llparts = llforms.replace(/[^0-9\s-.]/g, '').split(" ");   
+    var lleftx = parseFloat(llparts[0]),       
+        llefty = parseFloat(llparts[1]),
+        lleftrot = parseFloat(llparts[2]);
+    var lrfoot = document.getElementById("lright");   
+    var lrforms = lrfoot.getAttribute("transform");   
+    var lrparts = lrforms.replace(/[^0-9\s-.]/g, '').split(" ");   
+    var lrightx = parseFloat(lrparts[0]),       
+        lrighty = parseFloat(lrparts[1]),
+        lrightrot = parseFloat(lrparts[2]); 
+        
+    var flfoot = document.getElementById("fleft");   
+    var flforms = flfoot.getAttribute("transform");   
+    var flparts = flforms.replace(/[^0-9\s-.]/g, '').split(" ");   
+    var fleftx = parseFloat(flparts[0]),       
+        flefty = parseFloat(flparts[1]),
+        fleftrot = parseFloat(flparts[2]);   
+    var frfoot = document.getElementById("fright");   
+    var frforms = frfoot.getAttribute("transform");   
+    var frparts = frforms.replace(/[^0-9\s-.]/g, '').split(" ");   
+    var frightx = parseFloat(frparts[0]),       
+        frighty = parseFloat(frparts[1]),
+        frightrot = parseFloat(frparts[2]); 
+    if(timein <= 100){
+    	llefty -= .09375;
+        lleftx -= .09375;
+        frightx -= .09375;
+        frighty -= .09375;
+        frightrot -= .45;
+    }
+    else if(timein <= 200 && timein > 100){
+    	lrightx -= .09375*2;
+        lrighty -= .09375*2;
+        lrightrot -= 1.35;
+        fleftx -= .09375*1.25;
+        flefty -= .09375*2;
+        fleftrot -= 1.35;
+    }
+    else if(timein <= 300 && timein > 200){
+    	lleftx -= .09375;
+        llefty -= .09375;
+        lleftrot -= 1.35;
+        frightx -= .09375*.25;
+        frighty -= .09375;
+        frightrot -= .9;
+    }
+    else if(timein <= 400 && timein > 300){
+    	lrightx -= .09375;
+        lrighty -= .09375;
+        lrightrot -= .45;
+        flefty -= .09375;
+        fleftx -= .09375;
+    }
+    else if(timein <= 500 && timein > 400){
+    	lleftx -= .09375*1.25;
+        llefty -= .09375*2;
+        lleftrot -= 1.35;
+        frightx -= .09375*2;
+        frighty -= .09375*2;
+        frightrot -= 1.35;
+    }
+    else if(timein <= 600 && timein > 500){
+    	lrightx -= .09375*.25;
+        lrighty -= .09375;
+        lrightrot -= .9;
+        fleftx -= .09375;
+        flefty -= .09375;
+        fleftrot -= 1.35;
+    }
+    else{
+    	timein = 0;
+        stop();
+    }
+    llfoot.setAttribute("transform", `translate(${lleftx}, ${llefty}) rotate(${lleftrot})`);
+    lrfoot.setAttribute("transform", `translate(${lrightx}, ${lrighty}) rotate(${lrightrot})`);
+    flfoot.setAttribute("transform", `translate(${fleftx}, ${flefty}) rotate(${fleftrot})`);
+    frfoot.setAttribute("transform", `translate(${frightx}, ${frighty}) rotate(${frightrot})`);
+} 
+</script>
